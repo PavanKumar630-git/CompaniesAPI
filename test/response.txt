@@ -1,0 +1,233 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2,minimum-scale=1,user-scalable=yes,shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        
+        
+        
+        
+        
+        
+
+        <title>Login to Unified Business Portal</title>
+
+        <!-- Custom fonts for this template-->
+        <link href="/ubportal/resources/css/all.min.css" rel="stylesheet" type="text/css">
+        <link href="/ubportal/resources/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+        <!-- Custom styles for this template-->
+        <link href="/ubportal/resources/css/sb-admin.css" rel="stylesheet">
+        <link href="/ubportal/resources/css/all.css" rel="stylesheet">
+        <!-- Bootstrap core JavaScript-->
+        <script src="/ubportal/resources/JQuery/jquery-3.4.1.min.js"></script>
+        <script src="/ubportal/resources/JQuery/bootstrap.bundle.min.js"></script>
+
+        <!-- Core plugin JavaScript-->
+        <script src="/ubportal/resources/JQuery/jquery.easing.min.js"></script>
+        <link rel="stylesheet"
+              type="text/css"
+              href="/ubportal/resources/css/jquery-confirm.css"/>
+
+        <script type="text/javascript"
+        src="/ubportal/resources/javascript/jquery-confirm.js"></script>
+        <script type="text/javascript" src="/ubportal/resources/javascript/bowser.min.js"></script>
+<style>
+            .disable-container2{ 
+                display: none;
+                position: fixed;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: rgba(90, 90, 90, 0.82);
+                z-index: 9999;
+            }
+			#loader {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                z-index: 1;
+                width: 150px;
+                height: 150px;
+                margin: -75px 0 0 -75px;
+                border: 16px solid #f3f3f3;
+                border-radius: 50%;
+                border-top: 16px solid #3498db;
+                border-bottom: 16px solid pink;
+                width: 120px;
+                height: 120px;
+                -webkit-animation: spin 2s linear infinite;
+                animation: spin 2s linear infinite;
+            }
+			 @-webkit-keyframes spin {
+                0% { -webkit-transform: rotate(0deg); }
+                100% { -webkit-transform: rotate(360deg); }
+            }
+
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+        </style>
+        
+            <script>
+                var msg = 'User id does not exist';
+
+                if (msg.length > 0) {
+                    $ = jQuery.noConflict();
+                    $.confirm({
+                        theme: 'material',
+                        closeIcon: true,
+                        animation: 'scale',
+                        content: "<p>" + 'User id does not exist' + "</p>",
+                        type: 'orange',
+                        boxWidth: '30%',
+                        useBootstrap: false,
+                    });
+                
+                }
+            </script>
+        
+        <script>
+            function showalert(alertMsg) {
+                $.confirm({
+                    theme: 'material',
+                    closeIcon: true,
+                    animation: 'scale',
+                    content: "<p>" + alertMsg + "</p>",
+                    type: 'orange',
+                });
+            }
+            function validation() {
+
+                if (document.getElementById('userId').value == '') {
+                    document.getElementById("userId").style.borderColor = "red";
+                    showalert("Please provide userId");
+                    return false;
+                } else if (document.getElementById('password').value == '') {
+                    document.getElementById("password").style.borderColor = "red";
+                    showalert("Please provide Password");
+                    return false;
+                } else {
+ showLoader();
+                    return true;
+                }
+
+            }
+            function rmvHighlight(id) {
+
+
+                document.getElementById(id).style.border = "1px solid #ced4da";
+
+
+
+            }
+            function onlyNumbers(e) {
+                var valEntered = String.fromCharCode(e.which);
+                var val = /^[0-9]+$/;
+                if (val.test(valEntered))
+                {
+                    return true;
+                } else
+                {
+                    return false;
+                }
+            }
+            function detectbrowser() {
+                var browsername = bowser.name;
+                var browserver = bowser.version;
+                if (browsername == 'Internet Explorer') {
+                    alert('The site is best viewed in Chrome');
+
+
+                }
+
+            }
+ function showLoader()
+            {
+                $(".disable-container2").fadeTo(200, 1);
+                document.getElementById('loader').style.display = "block";
+                //populatePremium();
+            }
+			function hideLoader()
+            {
+                $(".disable-container2").fadeOut(200);
+                document.getElementById('loader').style.display = "none";
+            }
+        </script>
+    </head>
+
+    <body style="background: linear-gradient(to bottom, rgba(0, 148, 155, 0.89) 10%, rgba(0, 148, 155, 0.85) 34%, rgba(0, 148, 155, 0.74) 100%);" onload="detectbrowser();hideLoader();">
+
+        <div class="container">
+<div class="disable-container2">  <div  id="loader"> </div></div>
+            <div class="pb-3 pt-3 d-none d-lg-block"><img src="/ubportal/resources/images/nic_logo_new.jpg" alt="National Insurance logo Trusted since 1906" /></div>
+            <div class="pb-3 pt-3 pl-5  d-block d-lg-none"><img src="/ubportal/resources/images/nic_logo_new.jpg" alt="National Insurance logo Trusted since 1906" /></div>
+            <div class="d-none d-md-block"><img  src="/ubportal/resources/images/UBP_Image.gif" alt="National Motor Car Policy,National Two Wheeler Policy & National House Holders Policy"/></div>
+
+
+            <div class=" card card-login ml-auto mt-md-n30">
+                <!--      <div class="card-header text-center"><b style="color: #000080;">Unified Business Portal</b></div>-->
+                <div class="card-body p-5" style="background: #A9A9A9;box-shadow: 5px 5px 15px 5px rgba(31,16,199,0.38)">
+                    <div class="text-center pb-4 d-none d-md-block"><h1 style="font-size: 24px;color: #000080;">Unified Business Portal</h1></div>
+                    <div class="text-center pb-4 d-block d-md-none"><h1 style="font-size: 24px;color: #000080;">UB Portal<br/>Mobile Version</h1></div>
+
+                    <form name="SelectUser" method="post" action="/ubportal/SelectUserType.do">
+                        <div class="input-group form-group pr-md-5 pl-md-6">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            <input type="text" name="userId" id="userId" maxlength="14" class="form-control" placeholder="USER ID" onkeypress="rmvHighlight(this.id);
+                                    return onlyNumbers(event);">
+
+                        </div>
+                        <div class="input-group form-group pr-md-5 pl-md-6">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                            </div>
+                            <input type="password" name="password" maxlength="65" id="password" class="form-control" placeholder="PASSWORD" onkeypress="rmvHighlight(this.id);">
+                        </div>
+                        <!--                        <div class="form-group">
+                                                    <div class="form-label-group mx-7">
+                                                        <input type="text" maxlength="65" name="userId" placeholder="User ID"  id="userId" class="form-control form-control-lg"  autofocus="autofocus"/>
+                                                        
+                                                    </div>
+                                                </div>-->
+                        <!--                        <div class="form-group">
+                                                    <div class="form-label-group mx-7">
+                                                        <input name="password" maxlength="65" type="password"  placeholder="Password" id="password"   class="form-control form-control-lg"  />
+                        
+                                                    </div>
+                                                </div>-->
+                        <div class="mx-7 pr-md-5 pl-md-6">
+                            <input type="submit"  name="next" value="LOGIN" class="btn btn-primary btn-block" onclick="return validation();"/>
+                        </div>
+                    </form>
+                    <div class="text-center pt-4">
+                        <a class="d-block small" href="forgotPassword.jsp" style="color:#002b80e0;">Create/Change Password</a>
+                        
+                    </div>
+                    <div class="text-center pt-2">
+                       
+                        <a target="_blank" href="/ubportal/pdf/UBP_FAQ.pdf" style="color:#33331be6;">Download FAQ</a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <p class="pt-4 pb-md-5" style="color:white;font-size: 18px;">  <!--<marquee>  This portal will be down on Today 12-SEPT-2022 from 07:00 PM to 07:30 PM.</marquee>--></p>
+      <p class="position-static text-center"><small><font face="Verdana" style="color:#002B80;"><strong>Developed &amp; Maintained By TCS</strong> </font></small></p>
+
+
+</body>
+
+</html>
